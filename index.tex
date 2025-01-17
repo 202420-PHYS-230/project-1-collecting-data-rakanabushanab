@@ -1,0 +1,682 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Collecting Data: Project 1},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Collecting Data: Project 1}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+
+\section{Template}\label{template}
+
+\subsection{(Delete this section when you commit your
+report)}\label{delete-this-section-when-you-commit-your-report}
+
+For each project there'll be a template like this. I'll try to make the
+early templates more of a ``fill in the blank'' experience, but as the
+semester progresses you'll be seeing less and less scaffolding and more
+of bare bones layout with a lot of room for creativity and flexibility.
+The rubric will remain consistent for all the projects. When you are
+ready to commit your final report, you can delete this cell, and any
+other cells that are purely made up of instructions or guidance, and
+leave only the cells that belong in the final report.
+
+This doument is a \href{https://quarto.org}{Quarto} markdown document.
+We're using Quarto in this class to prepare project reports. It has some
+nice features that make it well suited to this sort of task. For example
+it's easy to pull a graph from a notebook like this:
+
+\begin{figure}
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/ExampleLinearFit-curve_fit_example-output-1.png}}
+
+}
+
+\caption{Example of curve fitting with
+\texttt{scipy.optimize.curve\_fit}.}
+
+\end{figure}%
+
+It's easy to embed math, like this: \(x=\sin(3t + \phi)\), right in your
+prose. You can also embed images that you've created and saved:
+
+\begin{figure}[H]
+
+{\centering \includegraphics[width=5.80208in,height=\textheight,keepaspectratio]{images/divider.png}
+
+}
+
+\caption{Fig. 1: The external circuit we used to implement a voltage
+divider and an RC circuit.}
+
+\end{figure}%
+
+Further, if you have a table of data that makes sense to include, that's
+also easy to do:
+
+\phantomsection\label{read_data}
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+& t & y \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0 & 0.000000 & 0.970921 \\
+1 & 0.263158 & 1.686714 \\
+2 & 0.526316 & 2.199626 \\
+3 & 0.789474 & 2.516062 \\
+4 & 1.052632 & 3.067824 \\
+\end{longtable}
+
+Loading data from a csv file
+
+The report should have 5 sections:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Abstract and Description
+
+  \begin{itemize}
+  \tightlist
+  \item
+    An abstract is a very brief statment of what was measured and the
+    results produced. In the best case, there should be an estimate of
+    uncertainty as well.
+  \item
+    The description is a more in-depth explanation of the experiments
+    done, but without the result. This is not a ``procedure,'' but
+    simply an explanation of what was accomplished, and roughly how it
+    was done.
+  \end{itemize}
+\item
+  Schematic and Background
+
+  \begin{itemize}
+  \tightlist
+  \item
+    A circuit schematic of each experiment.
+  \item
+    Any background information needed to understand the circuits.
+  \item
+    Any simulations you performed to prepare for measurements
+  \end{itemize}
+\item
+  Function/Data Collection
+
+  \begin{itemize}
+  \tightlist
+  \item
+    This is where you explain how you know the circuit functioned
+    correctly.
+  \item
+    What data did you collect?
+  \item
+    How did you validate it?
+  \end{itemize}
+\item
+  Results
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Analysis of data collected in part 3 to infer the values from the
+    abstract.
+  \item
+    If there are statistical exercises in this project, you'll post the
+    answers as a part of this section. Please state the question, and
+    provide the solution.
+  \end{itemize}
+\item
+  Conclusion
+
+  \begin{itemize}
+  \tightlist
+  \item
+    A summary of your inferences.
+  \end{itemize}
+\end{enumerate}
+
+Now it's time for the actual report. Delete everything above the line
+below, including the line! Within the report itself, all you need to do
+is to perform the actual experiments and replace both the data, and the
+results, with the actual data you collect, and the actual results you
+produce using that data. This week most of the work of writing, coding,
+and analyzing has already been done. All you need to do is to replace
+the sample data with real data. This is deliberately done so you'll have
+a concrete example of how to proceed in future weeks.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{1. Abstract and Description}\label{abstract-and-description}
+
+\subsection{Abstract}\label{abstract}
+
+We measured the voltage at two points in a resistor network to validate
+the behavior of the circuit. We found the ratio of voltages was:
+\(0.665\pm 0.001\) close to the expected value of \(0.667\). We also
+measured the decay over time of the voltage on a capacitor. We used that
+to estimate the decay time constant and found that to be
+\(\tau = 66.57 \pm 0.34\mathrm{~ms}\), very close to the expected value
+of \(\tau =66.67\mathrm{~ms}\). (Please replace these numbers with
+numbers from your actual experiment and analysis. Then delete this
+parenthetical comment.)
+
+\subsection{Description}\label{description}
+
+The intention of this project is to be simple enough that the electrical
+circuits are not too confusing or difficult, but also authentic in the
+sense that one is collecting real data and doing legitimate analysis of
+that data to produce results.
+
+The project invoves two experiments.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  To drive a resistor network and measure voltages in that network to
+  make inferences.
+\item
+  To monitor the voltage across a discharging capacitor over time to
+  infer the value of the time constant.
+\end{enumerate}
+
+\section{2. Schematic and Background}\label{schematic-and-background}
+
+Both measurements for this week use the same schemtic:
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/divider.png}}
+
+}
+
+\caption{Schematic Diagram for resistor/capacitor network}
+
+\end{figure}%
+
+In most projects you'll have some design decisions to make to choose
+devices and component values to produce a working circuit. In those
+cases this is where you'd describe those decisions and explain how to
+made them. This week the circuit is provided ``as-is'', so there are no
+design decisions to make, and no explanation is needed.
+
+For experiment 1 we'll use the DAC to drive pin 17 with ever increasing
+voltages. At the same time we'll be measuring the voltages at pins 15
+and 10. So long as the voltages change slowly enough that the capacitor
+can fully charge between measurements, the voltage at pin 10 (adc2)
+should be proportional to the voltage at pin 15 (adc1) according to the
+standard voltage divider relationship:
+
+\[ v_2 = \frac{R_2}{R_1 + R_2} v_1 \]
+
+By driving and measuring \(v_1\) and also measuring \(v_2\), we can
+check that the measured ratio is close to the expected value.
+
+We can simulation this experiment using a DC sweep simulation.
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/sim_divider_config.png}}
+
+}
+
+\caption{DC Sweep}
+
+\end{figure}%
+
+and graph the output:
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/sim_divider.png}}
+
+}
+
+\caption{DC Sweep Graph}
+
+\end{figure}%
+
+For experiment 2 we'll charge the capacitor by driving pin-17 high as a
+digital output for a long time (much longer than the expected time
+constant of the circuit.) Then we'll bring pin-17 to ground and very
+quickly measure the voltage across the capacitor (at pin-10) as
+frequently as possible capture the decay curve over time. We know the
+theoretical decay curve should be exponential:
+
+\[ v_2(t) = v_0 e^{-t/\tau} \]
+
+We can use this model, and the data we collect, to infer the time
+constant.
+
+We can configure a transient simulation to check this:
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/sim_decay_config.png}}
+
+}
+
+\caption{decay transient configuration}
+
+\end{figure}%
+
+and graph the output
+
+\begin{figure}[H]
+
+{\centering \pandocbounded{\includegraphics[keepaspectratio]{images/sim_decay.png}}
+
+}
+
+\caption{graph of decay response}
+
+\end{figure}%
+
+\section{3. Function and Data
+Collection}\label{function-and-data-collection}
+
+To measure the voltages \(v_1\) and \(v_2\) in the circuit we first had
+to discharge the capacitor, by pulling pin-17 low for a long time (3
+sec). Then we had to go slowly, raising the voltage on pin-17 and then
+waiting to give the capactor time to charge after each voltage change.
+Since we expect the time constant of the capactor to be around
+\(67\mathrm{~ms}\) we waited \(400\mathrm{~ms}\) between measurements,
+just to be sure.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ board }\CommentTok{\# information about the physical microcontroller}
+\ImportTok{import}\NormalTok{ analogio }\ImportTok{as}\NormalTok{ aio }\CommentTok{\# analog input and output library}
+\ImportTok{import}\NormalTok{ time }\CommentTok{\# standard python time library}
+
+\NormalTok{ADCMAX }\OperatorTok{=} \DecValTok{2}\OperatorTok{**}\DecValTok{16}\OperatorTok{{-}}\DecValTok{1} \CommentTok{\# maximum input/out from ADC or to DAC}
+
+\NormalTok{adc1 }\OperatorTok{=}\NormalTok{ aio.AnalogIn(board.IO15)  }\CommentTok{\# to read voltage from pin 15}
+\NormalTok{adc2 }\OperatorTok{=}\NormalTok{ aio.AnalogIn(board.IO10)  }\CommentTok{\# to read voltage from pin 10}
+\NormalTok{vfactor }\OperatorTok{=}\NormalTok{ adc1.reference\_voltage}\OperatorTok{/}\NormalTok{ADCMAX }\CommentTok{\# get conversion factor voltage to pin}
+
+\NormalTok{vdac }\OperatorTok{=}\NormalTok{ aio.AnalogOut(board.IO17) }\CommentTok{\# to control voltage on pin 17}
+
+\NormalTok{f }\OperatorTok{=} \BuiltInTok{open}\NormalTok{(}\StringTok{\textquotesingle{}starter.csv\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{)}
+\NormalTok{header }\OperatorTok{=} \StringTok{"j,vdac,v1,v2,time"}
+
+
+\NormalTok{vdac.value }\OperatorTok{=} \DecValTok{0} \CommentTok{\# set output voltage to zero}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"sleeping.... let C fully discharge"}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"3"}\NormalTok{)}
+\NormalTok{time.sleep(}\DecValTok{1}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"2"}\NormalTok{)}
+\NormalTok{time.sleep(}\DecValTok{1}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"1"}\NormalTok{)}
+\NormalTok{time.sleep(}\DecValTok{1}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"0 {-}{-}{-} go!"}\NormalTok{)}
+
+\NormalTok{f.write(header }\OperatorTok{+} \StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(header)}
+
+\NormalTok{t0 }\OperatorTok{=}\NormalTok{ time.monotonic\_ns()}
+
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{255}\NormalTok{,}\DecValTok{5}\NormalTok{): }\CommentTok{\# steps of 5 to save time}
+\NormalTok{    time.sleep(}\FloatTok{0.4}\NormalTok{) }\CommentTok{\# let the cap charge....}
+\NormalTok{    t }\OperatorTok{=}\NormalTok{ time.monotonic\_ns()}\OperatorTok{{-}}\NormalTok{t0}
+\NormalTok{    vout }\OperatorTok{=} \BuiltInTok{int}\NormalTok{((i}\OperatorTok{/}\DecValTok{255}\NormalTok{)}\OperatorTok{*}\NormalTok{ADCMAX)}
+\NormalTok{    vdac.value }\OperatorTok{=}\NormalTok{ vout}
+\NormalTok{    sval }\OperatorTok{=} \SpecialStringTok{f"}\SpecialCharTok{\{}\NormalTok{i}\SpecialCharTok{\}}\SpecialStringTok{,}\SpecialCharTok{\{}\NormalTok{vout}\OperatorTok{*}\NormalTok{vfactor}\SpecialCharTok{\}}\SpecialStringTok{,}\SpecialCharTok{\{}\NormalTok{adc1}\SpecialCharTok{.}\NormalTok{value}\OperatorTok{*}\NormalTok{vfactor}\SpecialCharTok{\}}\SpecialStringTok{,}\SpecialCharTok{\{}\NormalTok{adc2}\SpecialCharTok{.}\NormalTok{value}\OperatorTok{*}\NormalTok{vfactor}\SpecialCharTok{\}}\SpecialStringTok{,}\SpecialCharTok{\{}\NormalTok{t}\OperatorTok{/}\FloatTok{1e9}\SpecialCharTok{\}}\SpecialStringTok{"}
+\NormalTok{    f.write(}\SpecialStringTok{f"}\SpecialCharTok{\{}\NormalTok{sval}\SpecialCharTok{\}}\CharTok{\textbackslash{}n}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(sval)}
+
+\NormalTok{vdac.value }\OperatorTok{=} \DecValTok{0} \CommentTok{\# let the LED rest...}
+\NormalTok{f.close()}
+\end{Highlighting}
+\end{Shaded}
+
+An example of the data we collected can be seen here:
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule\noalign{}
+& j & vdac & v1 & v2 & time \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0 & 0 & 0.000000 & 0.084999 & 0.054987 & 0.399841 \\
+1 & 5 & 0.064656 & 0.103983 & 0.056951 & 0.802917 \\
+2 & 10 & 0.129361 & 0.159977 & 0.069993 & 1.205200 \\
+3 & 15 & 0.194067 & 0.221964 & 0.109975 & 1.607850 \\
+4 & 20 & 0.258773 & 0.276951 & 0.149000 & 2.010380 \\
+\end{longtable}
+
+The raw data looks reasonable:
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/ControlAndMeasure-cell-3-output-1.png}}
+
+For the second experiment we used a different program. This time we
+charged the capacitor fully, using pin-17 in digital output mode, and
+the dropped it suddenly. Then we wrote a tight loop, just measuring
+voltages and saving results without printing anything. After the data
+was captured, we reformatted and printed the data we had collected. The
+code to do this is below.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ analogio }\ImportTok{as}\NormalTok{ aio}
+\ImportTok{import}\NormalTok{ digitalio }\ImportTok{as}\NormalTok{ dio}
+\ImportTok{import}\NormalTok{ board}
+\ImportTok{import}\NormalTok{ time}
+
+\NormalTok{ADCMAX }\OperatorTok{=} \DecValTok{2}\OperatorTok{**}\DecValTok{16}\OperatorTok{{-}}\DecValTok{1}
+
+\NormalTok{adc1 }\OperatorTok{=}\NormalTok{ aio.AnalogIn(board.IO13) }\CommentTok{\# analog ports}
+\NormalTok{adc2 }\OperatorTok{=}\NormalTok{ aio.AnalogIn(board.IO15)}
+\NormalTok{adc3 }\OperatorTok{=}\NormalTok{ aio.AnalogIn(board.IO10)}
+\NormalTok{vfactor }\OperatorTok{=}\NormalTok{ adc1.reference\_voltage}\OperatorTok{/}\NormalTok{ADCMAX}
+
+\NormalTok{dout }\OperatorTok{=}\NormalTok{ dio.DigitalInOut(board.IO17) }\CommentTok{\# digital output}
+\NormalTok{dout.direction }\OperatorTok{=}\NormalTok{ dio.Direction.OUTPUT}
+
+\NormalTok{f }\OperatorTok{=} \BuiltInTok{open}\NormalTok{(}\StringTok{\textquotesingle{}decay.csv\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}w\textquotesingle{}}\NormalTok{)}
+\NormalTok{header }\OperatorTok{=} \StringTok{"j,v1,v2,v3,time"}
+
+\NormalTok{data }\OperatorTok{=}\NormalTok{ []}
+
+\NormalTok{dout.value }\OperatorTok{=} \DecValTok{1}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"sleeping.... let C fully charge"}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"3"}\NormalTok{)}
+\NormalTok{time.sleep(}\DecValTok{1}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"2"}\NormalTok{)}
+\NormalTok{time.sleep(}\DecValTok{1}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"1"}\NormalTok{)}
+\NormalTok{time.sleep(}\DecValTok{1}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"0 {-}{-}{-} go!"}\NormalTok{)}
+
+\NormalTok{t0 }\OperatorTok{=}\NormalTok{ time.monotonic\_ns()}
+\NormalTok{dout.value }\OperatorTok{=} \DecValTok{0}
+
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\DecValTok{0}\NormalTok{,}\BaseNTok{0xff}\NormalTok{,}\BaseNTok{0x2}\NormalTok{): }\CommentTok{\# measure quickly!}
+\NormalTok{    time.sleep(}\FloatTok{0.001}\NormalTok{)}
+\NormalTok{    data.append((i,adc1.value, adc2.value, adc3.value, time.monotonic\_ns()}\OperatorTok{{-}}\NormalTok{t0))}
+
+\NormalTok{f.write(header }\OperatorTok{+} \StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(header)}
+
+\ControlFlowTok{for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\NormalTok{(}\BuiltInTok{len}\NormalTok{(data)):}
+\NormalTok{    j,v1,v2,v3,t }\OperatorTok{=}\NormalTok{ data[i]}
+\NormalTok{    sval }\OperatorTok{=} \SpecialStringTok{f"}\SpecialCharTok{\{}\NormalTok{j}\SpecialCharTok{\}}\SpecialStringTok{,}\SpecialCharTok{\{}\NormalTok{v1}\OperatorTok{*}\NormalTok{vfactor}\SpecialCharTok{\}}\SpecialStringTok{,}\SpecialCharTok{\{}\NormalTok{v2}\OperatorTok{*}\NormalTok{vfactor}\SpecialCharTok{\}}\SpecialStringTok{,}\SpecialCharTok{\{}\NormalTok{v3}\OperatorTok{*}\NormalTok{vfactor}\SpecialCharTok{\}}\SpecialStringTok{,}\SpecialCharTok{\{}\NormalTok{t}\OperatorTok{/}\FloatTok{1e9}\SpecialCharTok{\}}\SpecialStringTok{"}
+\NormalTok{    f.write(}\SpecialStringTok{f"}\SpecialCharTok{\{}\NormalTok{sval}\SpecialCharTok{\}}\CharTok{\textbackslash{}n}\SpecialStringTok{"}\NormalTok{)}
+    \BuiltInTok{print}\NormalTok{(sval)}
+    
+\NormalTok{f.close()}
+\end{Highlighting}
+\end{Shaded}
+
+A sample of the collected data is presented here:
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule\noalign{}
+& j & v1 & v2 & v3 & time \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0 & 0 & 0.059972 & 0.056951 & 1.95099 & 0.002045 \\
+1 & 2 & 0.054987 & 0.055995 & 1.88896 & 0.003906 \\
+2 & 4 & 0.053980 & 0.053980 & 1.83095 & 0.005768 \\
+3 & 6 & 0.051966 & 0.051966 & 1.77400 & 0.007599 \\
+4 & 8 & 0.050959 & 0.049952 & 1.71896 & 0.009460 \\
+\end{longtable}
+
+A graph of the raw data is here:
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/ControlAndMeasure-cell-5-output-1.png}}
+
+\section{4. Results}\label{results}
+
+Once we have the data we can fit the voltage data to a the simple
+voltage divider model to infer the ratio:
+
+We can see this in the fit result from the
+\href{CurveFitting.ipynb}{\texttt{CurveFitting.ipynb}} notebook:
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/CurveFitting-cell-8-output-1.png}}
+
+Note that these are 5\% resistors, we we'd be unsuprised to see a result
+witha variation of around 5\%, or maybe a little more. However the
+actual result is within 3\%, so it's pretty good.
+
+We linearized the exponential model by taking the log of both sides,
+like so:
+
+\[ \log(v_1(t)) = \log(v_0) - t/\tau \]
+
+which looks a bit like:
+
+\[ y = m x + b \]
+
+but \(y=\log(v_1(t))\), \(x=t\), \(b=\log(v_0)\), and \(m=-1/\tau\).
+
+So we fit the data to a straight line model, similar to the voltage
+divider, and we got:
+
+\pandocbounded{\includegraphics[keepaspectratio]{index_files/figure-latex/CurveFitting-cell-13-output-1.png}}
+
+\subsection{Statistics Exercises}\label{statistics-exercises}
+
+The statistics exercises for this project were to perform the curve
+fitting for the two experiments. Please see above. 😊
+
+\section{5. Conclusion}\label{conclusion}
+
+We performed two experiments 1. measurements on a voltage divider to
+validate the value of the ratio of the bottom resistor to the whole
+network and 2. to measure the time constant of an RC network. We found
+the ratio of voltages for the voltage divider was: \(0.665\pm 0.001\)
+close to the expected value of \(0.667\). We found the time constant of
+the RC circuit to be \(tau = 66.57 \pm 0.34\mathrm{~ms}\), very close to
+the expected value of \(66.67\mathrm{~ms}\).
+
+The goal of this project was to become famiar with all the tools we'll
+be using this semester in Laboratory Instrumentation and to make some
+real measurements, and analyze some real data. (Add anything else you
+like here, what you learned, suggested improvements, etc. Be sure to
+delete this parenthetical remark in your final report.)
+
+
+
+
+\end{document}
