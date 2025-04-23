@@ -12,50 +12,13 @@ editor:
 
 # Template
 
-## (Delete this section when you commit your report)
 
-For each project there'll be a template like this. I'll try to make the early templates more of a "fill in the blank" experience, but as the semester progresses you'll be seeing less and less scaffolding and more of bare bones layout with a lot of room for creativity and flexibility. The rubric will remain consistent for all the projects. When you are ready to commit your final report, you can delete this cell, and any other cells that are purely made up of instructions or guidance, and leave only the cells that belong in the final report.
-
-This doument is a [Quarto](https://quarto.org) markdown document. We're using Quarto in this class to prepare project reports. It has some nice features that make it well suited to this sort of task. For example it's easy to pull a graph from a notebook like this:
-
-{{< embed ExampleLinearFit.ipynb#curve_fit_example >}}
-
-It's easy to embed math, like this: $x=\sin(3t + \phi)$, right in your prose. You can also embed images that you've created and saved:
-
-![Fig. 1: The external circuit we used to implement a voltage divider and an RC circuit.](images/divider.png){fig-align="left" width="557"}
-
-Further, if you have a table of data that makes sense to include, that's also easy to do:
-
-{{< embed ExampleLinearFit.ipynb#read_data >}}
-
-The report should have 5 sections:
-
-1. Abstract and Description
-    * An abstract is a very brief statment of what was measured and the results produced. In the best case, there should be an estimate of uncertainty as well.
-    * The description is a more in-depth explanation of the experiments done, but without the result. This is not a "procedure," but simply an explanation of what was accomplished, and roughly how it was done.
-2. Schematic and Background
-    * A circuit schematic of each experiment. 
-    * Any background information needed to understand the circuits. 
-    * Any simulations you performed to prepare for measurements
-3. Function/Data Collection
-    * This is where you explain how you know the circuit functioned correctly.
-    * What data did you collect?
-    * How did you validate it?
-4. Results
-    * Analysis of data collected in part 3 to infer the values from the abstract.
-    * If there are statistical exercises in this project, you'll post the answers as a part of this section. Please state the question, and provide the solution. 
-5. Conclusion
-    * A summary of your inferences.
-
-Now it's time for the actual report. Delete everything above the line below, including the line! Within the report itself, all you need to do is to perform the actual experiments and replace both the data, and the results, with the actual data you collect, and the actual results you produce using that data. This week most of the work of writing, coding, and analyzing has already been done. All you need to do is to replace the sample data with real data. This is deliberately done so you'll have a concrete example of how to proceed in future weeks.
-
-----------------------------------
 
 # 1. Abstract and Description
 
 ## Abstract
 
-We measured the voltage at two points in a resistor network to validate the behavior of the circuit. We found the ratio of voltages was: $0.665\pm 0.001$ close to the expected value of $0.667$. We also measured the decay over time of the voltage on a capacitor. We used that to estimate the decay time constant and found that to be $\tau = 66.57 \pm 0.34\mathrm{~ms}$, very close to the expected value of $\tau =66.67\mathrm{~ms}$. (Please replace these numbers with numbers from  your actual experiment and analysis. Then delete this parenthetical comment.)
+We measured the voltage at two points in a resistor network to validate the behavior of the circuit. We found the ratio of voltages was: $0.665\pm 0.001$ close to the expected value of $0.667$. We also measured the decay over time of the voltage on a capacitor. We used that to estimate the decay time constant and found that to be $\tau = 66.57 \pm 0.34\mathrm{~ms}$, very close to the expected value of $\tau =66.67\mathrm{~ms}$. 
 
 ## Description
 
@@ -251,5 +214,4 @@ The statistics exercises for this project were to perform the curve fitting for 
 
 We performed two experiments 1. measurements on a voltage divider to validate the value of the ratio of the bottom resistor to the whole network and 2. to measure the time constant of an RC network.  We found the ratio of voltages for the voltage divider was: $0.665\pm 0.001$ close to the expected value of $0.667$. We found the time constant of the RC circuit to be $tau = 66.57 \pm 0.34\mathrm{~ms}$, very close to the expected value of $66.67\mathrm{~ms}$.
 
-The goal of this project was to become famiar with all the tools we'll be using this semester in Laboratory Instrumentation and to make some real measurements, and analyze some real data. (Add anything else you like here, what you learned, suggested improvements, etc. Be sure to delete this parenthetical remark in your final report.)
 
